@@ -1,0 +1,37 @@
+DESAFIO DE GRAFOS - NÍVEL 1: CONECTIVIDADE BÁSICA (BFS)
+
+**Cenário:** Uma pequena rede de estações de metrô. Queremos saber se é possível ir de uma estação para outra, independentemente da distância ou do tempo (todos os trechos têm "custo" 1).
+
+**O Grafo (Lista de Adjacência):**
+
+| Estação (Nó) | Conexões (Vizinhos) |
+| :---: | :---: |
+| **A** | B, D |
+| **B** | A, C |
+| **C** | B, E |
+| **D** | A |
+| **E** | C |
+
+*(Este é um grafo não-direcionado: se A liga a B, B também liga a A.)*
+
+### Sua Tarefa (Implementação em Java):
+
+1.  **Representação:** Crie uma classe e um método principal para **montar o grafo** usando a **Lista de Adjacência** (`Map<String, Set<String>>`).
+2.  **Algoritmo:** Implemente o método:
+    ```java
+    public static boolean isReachable(
+        Map<String, Set<String>> graph, 
+        String start, 
+        String end
+    )
+    ```
+    que utilize a **Busca em Largura (BFS)** para retornar `true` se houver um caminho entre as estações `start` e `end`, e `false` caso contrário.
+
+### Teste de Verificação:
+
+Seu código deve retornar:
+
+  * `isReachable(graph, "A", "E")` $\rightarrow$ ?
+  * `isReachable(graph, "D", "B")` $\rightarrow$ ?
+
+Fique à vontade para me enviar a classe completa, incluindo a estrutura do grafo e o método `isReachable`\! Estou pronto para guiar seus próximos passos\! 🚀
