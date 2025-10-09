@@ -68,21 +68,6 @@ Meu objetivo não é apenas crescer tecnicamente, mas também **gerar valor real
 
 ---
 
-## 🧾 Como Executar
-
-```bash
-# Clone o repositório
-git clone https://github.com/Immilengo/<nome-do-repositorio>.git
-
-# Entre na pasta
-cd <nome-do-repositorio>
-
-# Compile e execute o arquivo desejado
-javac src/Main.java && java Main
-```
-
----
-
 ## 📈 Próximos Passos
 
 * [ ] Adicionar benchmarking entre estruturas (`HashMap` vs `TreeMap`, etc.)
@@ -96,6 +81,6 @@ javac src/Main.java && java Main
 Se quiser trocar ideias, colaborar ou sugerir melhorias:
 
 **👤 Inácio Mazanga Milengo**
-📧 [[teu-email@exemplo.com](mailto:teu-email@exemplo.com)]
+📧 [[Email:](mailto:milengoinacio@gmail.com)]
 💼 [LinkedIn](https://www.linkedin.com/in/immilengo)
 💻 [GitHub](https://github.com/Immilengo)
