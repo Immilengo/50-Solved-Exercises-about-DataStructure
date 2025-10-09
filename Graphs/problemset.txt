@@ -35,3 +35,53 @@ Seu código deve retornar:
   * `isReachable(graph, "D", "B")` $\rightarrow$ ?
 
 Fique à vontade para me enviar a classe completa, incluindo a estrutura do grafo e o método `isReachable`\! Estou pronto para guiar seus próximos passos\! 🚀
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+DESAFIO DE GRAFOS - NÍVEL 2: CAMINHO MAIS CURTO PONDERADO (DIJKSTRA)
+Agora, vamos subir de nível e aplicar a Fila de Prioridade e o Algoritmo de Dijkstra que discutimos. O objetivo é encontrar o custo mínimo (a menor distância) entre dois pontos.
+
+Cenário: Uma rede rodoviária onde os trechos têm diferentes custos (pedágios ou combustível).
+
+O Grafo (Direcionado e Ponderado):
+
+Origem	Destino	Custo (Peso)
+A	B	4
+A	C	2
+B	C	5
+B	D	10
+C	D	3
+D	E	7
+E	F	1
+C	E	8
+
+Sua Tarefa (Implementação em Java):
+Estruturas Auxiliares: Crie ou use a classe auxiliar CaminhoNo (com no e distancia, implementando Comparable).
+
+Representação do Grafo: Monte o grafo acima usando a estrutura Map<String, Map<String, Integer>>.
+
+Algoritmo: Implemente o método:
+
+Java
+
+public static int findShortestDistance(
+    Map<String, Map<String, Integer>> graph, 
+    String start, 
+    String end
+)
+que utiliza o Algoritmo de Dijkstra e a PriorityQueue para retornar o custo mínimo total de start para end.
+
+Teste de Verificação:
+Qual é o custo mínimo de A para F (findShortestDistance(graph, "A", "F"))?
+
+Você pode usar o código do nosso guia, mas tente escrevê-lo por conta própria para internalizar o fluxo de inicialização, relaxamento (atualização de distância) e uso da PriorityQueue! Estou aqui para guiar cada etapa.
