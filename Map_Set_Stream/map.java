@@ -1,11 +1,18 @@
 package Map_Set_Stream;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public abstract class map {
         // Dado um array de strings, conte a frequência de cada palavra
@@ -39,13 +46,45 @@ public abstract class map {
             char[] charStr = str.toCharArray();
             for(char c : charStr)
                 countCharMap.put(c,countCharMap.getOrDefault(c, 0)+1);
-            return Collections.max(countCharMap.entrySet().stream().sorted(Comparator.naturalOrder()));
+            return Map.of();//Collections.max(countCharMap.entrySet().stream().sorted(Comparator.naturalOrder()));
         }
 
         // Encontre os K elementos mais frequentes
-        public List<Integer> topKFrequent(int[] nums, int k) {
+        public static class chave_valor implements Comparable{
+            int chave;
+            int valor;
+
+            @Override
+            public int compareTo(Object arg) {
+                return Math.max(valor, chave);
+            }
+        }
+        public static List<Integer> topKFrequent(int[] nums, int k) {
             // Use Map para frequência e Stream para ordenar
-            return null;
+            Map<Integer,Integer> frequency = new HashMap<>();
+            Set<Integer> chave = new HashSet<>();
+            Set<chave_valor> valores = new HashSet<>();
+            PriorityQueue<chave_valor> priority = new PriorityQueue<>(Comparator.reverseOrder());
+
+            for (int iterable_element : nums)
+                frequency.merge(iterable_element, 1, Integer::sum);
+            for(Map.Entry<Integer,Integer> i : frequency.entrySet()){
+                chave_valor tal = new chave_valor();
+                tal.chave = i.getKey();
+                tal.valor = i.getValue();
+                valores.add(tal);
+            }
+           /*frequency.forEach((key,v) -> {
+                System.out.println(key + " "+ v);
+            });
+            for(Map.Entry<Integer,Integer> hub : frequency.entrySet())
+                System.out.println(hub.getKey() +" "+ hub.getValue()); */
+           return frequency.entrySet()
+                           .stream()
+                           .sorted()
+                           .limit(k)
+                           .map(Map.Entry::getKey)
+                           .collect(Collectors.toList());
         }
 
         // Agrupe todas as strings que são anagramas entre si
@@ -55,9 +94,19 @@ public abstract class map {
         }
 
         // Encontre todos os números que aparecem pelo menos 2 vezes
-        public List<Integer> findDuplicates(int[] nums) {
+        public static List<Integer> findDuplicates(int[] nums) {
+            Map<Integer,Integer> twice = new HashMap<>();
+            Set<Integer> duplo = new HashSet<>();
+            Set<Integer> duplo2 = new HashSet<>();
+            List<Integer> ret = new ArrayList<>();
+
+            for(int i : nums)
+                twice.merge(i,1,Integer::sum);
+            for(int i : nums)
+                if(!duplo.add(i))
+                    duplo2.add(i);
             // Use Map ou Set
-            return null;
+            return duplo2.stream().toList();
         }
 
         // Conte quantas palavras únicas existem ignorando case
@@ -69,6 +118,9 @@ public abstract class map {
         // Encontre o elemento que mais aparece em um array
         public int mostFrequentElement(int[] nums) {
             // Use Map e Stream max
+            Map<Integer,Integer> maxi = new HashMap<>();
+            for(int i : nums)
+                maxi.merge(i, 1, Integer::sum);
             return 0;
         }
 
@@ -86,19 +138,24 @@ public abstract class map {
 
         // Dado array de scores, retorne array com ranking (1° maior score, etc)
         public int[] findRanks(int[] scores) {
-            // Use Stream com sorting e Map para mapear score->rank
+            //Use Stream com sorting e Map para mapear score->rank
             return new int[]{};
         }
 
         // Agrupe pessoas por cidade e depois por faixa etária
-        public Map<String, Map<String, List<Person>>> groupByCityAndAgeGroup(List<Person> people) {
+        public Map<String, Map<String, List<Integer>>> groupByCityAndAgeGroup(List<Integer> people) {
             // Use groupingBy aninhado
-            return null;
+            return Map.of();
         }
 
         // Encontre o primeiro caractere não repetido em uma string
         public char firstNonRepeatingChar(String s) {
             // Implemente usando LinkedHashMap para manter ordem
             return 0;
+        }
+
+        public static void main(String[] args) {
+            int[] n = {1,2,5,8,2,2,2,4,5,4,4,3,2,2,1,1,2,1,3,8,9,7,6,4,2,51,6,1,3,5,51,23,4};
+            System.out.println(findDuplicates(n));
         }
 }

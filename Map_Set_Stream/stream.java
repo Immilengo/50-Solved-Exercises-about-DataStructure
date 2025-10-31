@@ -28,6 +28,7 @@ public class stream {
         // Agrupe palavras por seu tamanho
         public Map<Integer, List<String>> groupByLength(List<String> words) {
             // Implemente usando Stream e Collectors.groupingBy
+            
             return null;
         }
 
