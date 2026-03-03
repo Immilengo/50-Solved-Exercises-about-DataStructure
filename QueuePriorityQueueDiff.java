@@ -1,13 +1,11 @@
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.stream.*;
 
 public class QueuePriorityQueueDiff{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Queue<String> fila= new LinkedList<>();
         PriorityQueue<String> filaPrioridade = new PriorityQueue<>(Collections.reverseOrder());
 

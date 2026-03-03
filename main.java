@@ -25,7 +25,7 @@ public class main{
                                  .distinct()
                                  .sorted()
                                  .map(testeReference::multiplicar)
-                                 .forEach(out::print);
+                                .forEach(out::print);
                                 // .collect(Collectors.toList());
         //Arrays.sort(pares);
         //pares.sort(null);
